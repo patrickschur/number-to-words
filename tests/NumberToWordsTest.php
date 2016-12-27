@@ -38,4 +38,13 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals($k, $a->convert($v));
         }
     }
+
+    public function testIsNull()
+    {
+        $a = new NumberToWords();
+
+        $this->assertNull($a->convert('NOT A NUMBER'));
+        $this->assertNull($a->convert('7I'));
+        $this->assertNull($a->convert('1432423,429 NOT A NUMBER'));
+    }
 }
