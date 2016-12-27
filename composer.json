@@ -1,0 +1,32 @@
+{
+  "name": "patrickschur/number-to-words",
+  "type": "library",
+  "description": "Convert numbers to words in German.",
+  "keywords": ["convert", "numbers", "to", "words"],
+  "homepage": "https://github.com/patrickschur/number-to-words",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Patrick Schur",
+      "email": "patrick_schur@outlook.de"
+    }
+  ],
+  "require": {
+    "php": "^7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "NumberToWords\\": "src/NumberToWords"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "NumberToWords\\Tests\\": "tests/"
+    }
+  }
+}
