@@ -100,6 +100,18 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $number
+     * @param string $expected
+     * @dataProvider getFloatingPointNumbersProvider
+     */
+    public function testFloatingPoint(string $number, string $expected)
+    {
+        $n = new NumberToWords();
+
+        $this->assertEquals($expected, $n->convert($number));
+    }
+
+    /**
      * @return array
      */
     public function getUnitsProvider()
@@ -222,6 +234,19 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
             ['1' . str_repeat('0', 6000), 'eine Millinillion'],
             ['6' . str_repeat('0', 1800), 'sechs Trezentillionen'],
             ['1' . str_repeat('0', 59994), 'eine Nonillinovenonagintanongentillion'],
+            ['899' . str_repeat('0', 498), 'achthundertneunundneunzig Treoktogintillionen'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getFloatingPointNumbersProvider()
+    {
+        return [
+            ['0,50', 'null Komma fünf'],
+            ['-101,88', 'minus einhunderteins Komma acht acht'],
+            ['39279,43000', 'neununddreißigtausendzweihundertneunundsiebzig Komma vier drei']
         ];
     }
 }
