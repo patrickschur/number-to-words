@@ -7,7 +7,7 @@ namespace NumberToWords;
 /**
  * Class NumberToWords
  *
- * @author Patrick Schur
+ * @author Patrick Schur <patrick_schur@outlook.de>
  * @package NumberToWords
  */
 class NumberToWords
@@ -25,6 +25,54 @@ class NumberToWords
         'neun'
     ];
 
+    private const PRE_NON_UNITS = [
+        1 => 'mi',
+        'bi',
+        'tri',
+        'quadri',
+        'quinti',
+        'sexti',
+        'septi',
+        'okti',
+        'noni'
+    ];
+    
+    private const PRE_UNITS = [
+        1 => 'un',
+        'duo',
+        'tre',
+        'quattuor',
+        'quinqua',
+        'se',
+        'septe',
+        'okto',
+        'nove'
+    ];
+
+    private const PRE_TENS = [
+        1 => 'dezi',		
+        'viginti',		
+        'triginta',		
+        'quadraginta',		
+        'quinquaginta',		
+        'sexaginta',		
+        'septuaginta',		
+        'oktoginta',		
+        'nonaginta'
+    ];
+    
+    private const PRE_HUNDREDS = [
+        1 => 'zenti',
+        'duzenti',
+        'trezenti',
+        'quadringenti',
+        'quingenti',
+        'seszenti',
+        'septingenti',
+        'oktingenti',
+        'nongenti'
+    ];
+
     /**
      * Convert numbers to words in German
      *
@@ -33,9 +81,9 @@ class NumberToWords
      */
     public function convert(string $number): ?string
     {
-        if (!preg_match('/^([+-]?([1-9]\d*(,\d+)?|0,\d+)|0)$/', $number))
+       // if (!preg_match('/^([+-]?([1-9]\d*(,\d+)?|0,\d+)|0)$/', $number))
         {
-            return null;
+         //   return null;
         }
 
         $words = '';
@@ -193,23 +241,18 @@ class NumberToWords
         $words = '';
         $exp = intdiv($power, 6);
 
-        $l1 = [1 => 'mi', 'bi', 'tri', 'quadri', 'quinti', 'sexti', 'septi', 'okti', 'noni'];
-        $l2 = [1 => 'un', 'duo', 'tre', 'quattuor', 'quinqua', 'se', 'septe', 'okto', 'nove'];
-        $l3 = [1 => 'dezi', 'viginti', 'triginta', 'quadraginta', 'quinquaginta', 'sexaginta', 'septuaginta', 'oktoginta', 'nonaginta'];
-        $l4 = [1 => 'zenti', 'duzenti', 'trezenti', 'quadringenti', 'quingenti', 'seszenti', 'septingenti', 'oktogenti', 'nongenti'];
-
-        if ($exp <= 9)
+        if ($exp < 10)
         {
-            $words .= $l1[$exp];
+            $words .= self::PRE_NON_UNITS[$exp];
         }
-        else if ($exp >= 10 && $exp <= 999)
+        else if ($exp < 1000)
         {
             $tens = $exp / 10 % 10;
             $units = $exp % 10;
 
             if ($units > 0)
             {
-                $words .= $l2[$units];
+                $words .= self::PRE_UNITS[$units];
 
                 if ($units == 9 || $units == 7)
                 {
@@ -238,44 +281,44 @@ class NumberToWords
 
             if ($tens > 0)
             {
-                $words .= $l3[$tens];
+                $words .= self::PRE_TENS[$tens];
             }
 
-            if ($exp >= 100 && $exp <= 999)
+            if ($exp >= 100)
             {
-                $h = $exp / 100 % 10;
+                $hundreds = $exp / 100 % 10;
 
                 if ($tens == 0)
                 {
                     if ($units == 9 || $units == 7)
                     {
-                        if ($h == 1 || $h == 2 || $h == 3 || $h == 4 || $h == 5 || $h == 6 || $h == 7)
+                        if ($hundreds == 1 || $hundreds == 2 || $hundreds == 3 || $hundreds == 4 || $hundreds == 5 || $hundreds == 6 || $hundreds == 7)
                         {
                             $words .= 'n';
                         }
-                        else if ($h == 8)
+                        else if ($hundreds == 8)
                         {
                             $words .= 'm';
                         }
                     }
                     else if ($units == 3 || $units == 6)
                     {
-                        if ($h == 3 || $h == 4 || $h == 5)
+                        if ($hundreds == 3 || $hundreds == 4 || $hundreds == 5)
                         {
                             $words .= 's';
                         }
 
-                        if ($units == 6 && ($h == 1 || $h == 8))
+                        if ($units == 6 && ($hundreds == 1 || $hundreds == 8))
                         {
                             $words .= 'x';
                         }
                     }
                 }
 
-                $words .= $l4[$h];
+                $words .= self::PRE_HUNDREDS[$hundreds];
             }
         }
-        else if ($exp >= 1000)
+        else
         {
             $v = [];
 
