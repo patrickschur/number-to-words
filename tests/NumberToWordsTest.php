@@ -234,6 +234,16 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
             ['1' . str_repeat('0', 6000), 'eine Millinillion'],
             ['6' . str_repeat('0', 1800), 'sechs Trezentillionen'],
             ['1' . str_repeat('0', 59994), 'eine Nonillinovenonagintanongentillion'],
+            ['1' . str_repeat('0', 6000000), 'eine Millinillinillion'],
+            ['1' . str_repeat('0', 462), 'eine Septenseptuagintillion'],
+            ['1' . str_repeat('0', 138), 'eine Tresvigintillion'],
+            ['1' . str_repeat('0', 516), 'eine Sexoktogintillion'],
+            ['1' . str_repeat('0', 612), 'eine Duozentillion'],
+            ['1' . str_repeat('0', 654), 'eine Novenzentillion'],
+            ['1' . str_repeat('0', 4854), 'eine Novemoktingentillion'],
+            ['1' . str_repeat('0', 828), 'eine Oktotrigintazentillion'],
+            ['1' . str_repeat('0', 2418), 'eine Tresquadringentillion'],
+            ['1' . str_repeat('0', 4836), 'eine Sexoktingentillion'],
             ['899' . str_repeat('0', 498), 'achthundertneunundneunzig Treoktogintillionen'],
         ];
     }
