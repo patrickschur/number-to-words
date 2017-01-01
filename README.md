@@ -23,5 +23,6 @@ use NumberToWords\NumberToWords;
 $n = new NumberToWords;
  
 echo $n->convert('1' . str_repeat('0', 6000)); // outputs "eine Millinillion"
-echo $n->convert('100000000000000000000000000000,29'); // outputs "einhundert Quadrilliarden Komma zwei neun"
+echo $n->convert('140,29'); // outputs "einhundertvierzig Komma zwei neun"
+echo $n->convert('40932'); // outputs "vierzigtausendneunhundertzweiunddreißig"
 ```
