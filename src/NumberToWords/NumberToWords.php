@@ -81,9 +81,9 @@ class NumberToWords
      */
     public function convert(string $number): ?string
     {
-       // if (!preg_match('/^([+-]?([1-9]\d*(,\d+)?|0,\d+)|0)$/', $number))
+        if (!preg_match('/^([+-]?([1-9]\d*(,\d+)?|0,\d+)|0)$/', $number))
         {
-         //   return null;
+            return null;
         }
 
         $words = '';
