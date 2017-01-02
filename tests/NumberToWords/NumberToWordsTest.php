@@ -6,6 +6,12 @@ namespace NumberToWords\Tests;
 
 use NumberToWords\NumberToWords;
 
+/**
+ * Class NumberToWordsTest
+ *
+ * @author Patrick Schur <patrick_schur@outlook.de>
+ * @package NumberToWords\Tests
+ */
 class NumberToWordsTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsNull()
