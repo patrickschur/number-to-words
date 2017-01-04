@@ -232,11 +232,26 @@ class NumberToWords
     }
 
     /**
-     * @param $power
-     * @param bool $r
+     * @param int $exponent
+     * @throws \LengthException if exponent is less than 6
+     * @return string
+     */
+    public function nameOfLargNumber(int $exponent)
+    {
+        if ($exponent < 6)
+        {
+            throw new \LengthException('Power must be greater than or equal to 6.');
+        }
+
+        return $this->helper($exponent)[0];
+    }
+
+    /**
+     * @param int $power
+     * @param bool $recursive
      * @return array|string
      */
-    private function helper($power, $r = false)
+    private function helper(int $power, bool $recursive = false)
     {
         $words = '';
         $exp = intdiv($power, 6);
@@ -353,7 +368,7 @@ class NumberToWords
             }
         }
 
-        if ($r)
+        if ($recursive)
         {
             return $words;
         }

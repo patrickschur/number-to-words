@@ -16,9 +16,31 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsNull()
     {
-        $a = new NumberToWords();
+        $n = new NumberToWords();
 
-        $this->assertNull($a->convert('NaN')); // Not a Number
+        $this->assertNull($n->convert('NaN')); // Not a Number
+    }
+
+    /**
+     * @expectedException \LengthException
+     */
+    public function testLargeNumberException()
+    {
+        $n = new NumberToWords();
+
+        $n->nameOfLargNumber(0);
+    }
+
+    /**
+     * @param int $number
+     * @param string $expected
+     * @dataProvider largeNumberProvider
+     */
+    public function testLargeNumbers(int $number, string $expected)
+    {
+        $n = new NumberToWords();
+
+        $this->assertEquals($expected, $n->nameOfLargNumber($number));
     }
 
     /**
@@ -263,6 +285,21 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
             ['0,50', 'null Komma fünf'],
             ['-101,88', 'minus einhunderteins Komma acht acht'],
             ['39279,43000', 'neununddreißigtausendzweihundertneunundsiebzig Komma vier drei']
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function largeNumberProvider()
+    {
+        return [
+            [6000, 'Millinillion'],
+            [600, 'Zentillion'],
+            [6, 'Million'],
+            [9, 'Milliarde'],
+            [15, 'Billiarde'],
+            [900, 'Quinquagintazentillion'],
         ];
     }
 }
