@@ -236,7 +236,7 @@ class NumberToWords
      * @throws \LengthException if exponent is less than 6
      * @return string
      */
-    public function nameOfLargNumber(int $exponent)
+    public function nameOfLargeNumber(int $exponent)
     {
         if ($exponent < 6)
         {
