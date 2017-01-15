@@ -29,7 +29,7 @@ $c = new NumberToWords(new English()); // english
 echo $c->nameOfLargeNumber(3003); // outputs "millinillion"
  
 echo $n->convert('3043.43'); // outputs "three thousand forty-three point four three"
-echo $n->convert(M_PI); // outputs "three point one four one five nine two six five three five eight nine eight"
+echo $n->convert('3.1415926535'); // outputs "three point one four one five nine two six five three five"
 ```
 
 German
