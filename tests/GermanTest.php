@@ -5,18 +5,19 @@ declare(strict_types = 1);
 namespace NumberToWords\Tests;
 
 use NumberToWords\NumberToWords;
+use NumberToWords\Locale\German;
 
 /**
- * Class NumberToWordsTest
+ * Class GermanTest
  *
  * @author Patrick Schur <patrick_schur@outlook.de>
  * @package NumberToWords\Tests
  */
-class NumberToWordsTest extends \PHPUnit_Framework_TestCase
+class GermanTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsNull()
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertNull($n->convert('NaN')); // Not a Number
     }
@@ -26,9 +27,9 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testLargeNumberException()
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
-        $n->nameOfLargNumber(0);
+        $n->nameOfLargeNumber(0);
     }
 
     /**
@@ -38,9 +39,9 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testLargeNumbers(int $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
-        $this->assertEquals($expected, $n->nameOfLargNumber($number));
+        $this->assertEquals($expected, $n->nameOfLargeNumber($number));
     }
 
     /**
@@ -50,7 +51,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testUnits(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -62,7 +63,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testTens(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -74,7 +75,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testTwentys(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -86,7 +87,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testHundreds(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -98,7 +99,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testNegativeAndPlus(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -110,7 +111,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testThousands(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -122,7 +123,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMillions(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
@@ -134,7 +135,7 @@ class NumberToWordsTest extends \PHPUnit_Framework_TestCase
      */
     public function testFloatingPoint(string $number, string $expected)
     {
-        $n = new NumberToWords();
+        $n = new NumberToWords(new German());
 
         $this->assertEquals($expected, $n->convert($number));
     }
