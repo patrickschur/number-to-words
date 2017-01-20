@@ -71,18 +71,6 @@ class GermanTest extends \PHPUnit_Framework_TestCase
     /**
      * @param string $number
      * @param string $expected
-     * @dataProvider getTwentysProvider
-     */
-    public function testTwentys(string $number, string $expected)
-    {
-        $n = new NumberToWords(new German());
-
-        $this->assertEquals($expected, $n->convert($number));
-    }
-
-    /**
-     * @param string $number
-     * @param string $expected
      * @dataProvider getHundredsProvider
      */
     public function testHundreds(string $number, string $expected)
@@ -175,15 +163,6 @@ class GermanTest extends \PHPUnit_Framework_TestCase
             ['17', 'siebzehn'],
             ['18', 'achtzehn'],
             ['19', 'neunzehn'],
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public function getTwentysProvider()
-    {
-        return [
             ['20', 'zwanzig'],
             ['21', 'einundzwanzig'],
             ['22', 'zweiundzwanzig'],
@@ -194,6 +173,76 @@ class GermanTest extends \PHPUnit_Framework_TestCase
             ['27', 'siebenundzwanzig'],
             ['28', 'achtundzwanzig'],
             ['29', 'neunundzwanzig'],
+            ['30', 'dreißig'],
+            ['31', 'einunddreißig'],
+            ['32', 'zweiunddreißig'],
+            ['33', 'dreiunddreißig'],
+            ['34', 'vierunddreißig'],
+            ['35', 'fünfunddreißig'],
+            ['36', 'sechsunddreißig'],
+            ['37', 'siebenunddreißig'],
+            ['38', 'achtunddreißig'],
+            ['39', 'neununddreißig'],
+            ['40', 'vierzig'],
+            ['41', 'einundvierzig'],
+            ['42', 'zweiundvierzig'],
+            ['43', 'dreiundvierzig'],
+            ['44', 'vierundvierzig'],
+            ['45', 'fünfundvierzig'],
+            ['46', 'sechsundvierzig'],
+            ['47', 'siebenundvierzig'],
+            ['48', 'achtundvierzig'],
+            ['49', 'neunundvierzig'],
+            ['50', 'fünfzig'],
+            ['51', 'einundfünfzig'],
+            ['52', 'zweiundfünfzig'],
+            ['53', 'dreiundfünfzig'],
+            ['54', 'vierundfünfzig'],
+            ['55', 'fünfundfünfzig'],
+            ['56', 'sechsundfünfzig'],
+            ['57', 'siebenundfünfzig'],
+            ['58', 'achtundfünfzig'],
+            ['59', 'neunundfünfzig'],
+            ['60', 'sechzig'],
+            ['61', 'einundsechzig'],
+            ['62', 'zweiundsechzig'],
+            ['63', 'dreiundsechzig'],
+            ['64', 'vierundsechzig'],
+            ['65', 'fünfundsechzig'],
+            ['66', 'sechsundsechzig'],
+            ['67', 'siebenundsechzig'],
+            ['68', 'achtundsechzig'],
+            ['69', 'neunundsechzig'],
+            ['70', 'siebzig'],
+            ['71', 'einundsiebzig'],
+            ['72', 'zweiundsiebzig'],
+            ['73', 'dreiundsiebzig'],
+            ['74', 'vierundsiebzig'],
+            ['75', 'fünfundsiebzig'],
+            ['76', 'sechsundsiebzig'],
+            ['77', 'siebenundsiebzig'],
+            ['78', 'achtundsiebzig'],
+            ['79', 'neunundsiebzig'],
+            ['80', 'achtzig'],
+            ['81', 'einundachtzig'],
+            ['82', 'zweiundachtzig'],
+            ['83', 'dreiundachtzig'],
+            ['84', 'vierundachtzig'],
+            ['85', 'fünfundachtzig'],
+            ['86', 'sechsundachtzig'],
+            ['87', 'siebenundachtzig'],
+            ['88', 'achtundachtzig'],
+            ['89', 'neunundachtzig'],
+            ['90', 'neunzig'],
+            ['91', 'einundneunzig'],
+            ['92', 'zweiundneunzig'],
+            ['93', 'dreiundneunzig'],
+            ['94', 'vierundneunzig'],
+            ['95', 'fünfundneunzig'],
+            ['96', 'sechsundneunzig'],
+            ['97', 'siebenundneunzig'],
+            ['98', 'achtundneunzig'],
+            ['99', 'neunundneunzig'],
         ];
     }
 
@@ -204,16 +253,27 @@ class GermanTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['100', 'einhundert'],
+            ['200', 'zweihundert'],
+            ['300', 'dreihundert'],
+            ['400', 'vierhundert'],
+            ['500', 'fünfhundert'],
+            ['600', 'sechshundert'],
+            ['700', 'siebenhundert'],
+            ['800', 'achthundert'],
+            ['900', 'neunhundert'],
             ['101', 'einhunderteins'],
             ['110', 'einhundertzehn'],
             ['111', 'einhundertelf'],
+            ['112', 'einhundertzwölf'],
+            ['113', 'einhundertdreizehn'],
+            ['114', 'einhundertvierzehn'],
+            ['115', 'einhundertfünfzehn'],
             ['116', 'einhundertsechzehn'],
-            ['133', 'einhundertdreiunddreißig'],
-            ['160', 'einhundertsechzig'],
-            ['190', 'einhundertneunzig'],
+            ['117', 'einhundertsiebzehn'],
+            ['118', 'einhundertachtzehn'],
+            ['119', 'einhundertneunzehn'],
+            ['120', 'einhundertzwanzig'],
             ['199', 'einhundertneunundneunzig'],
-            ['300', 'dreihundert'],
-            ['699', 'sechshundertneunundneunzig'],
         ];
     }
 
@@ -239,9 +299,26 @@ class GermanTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['1000', 'eintausend'],
+            ['2000', 'zweitausend'],
+            ['3000', 'dreitausend'],
+            ['4000', 'viertausend'],
+            ['5000', 'fünftausend'],
+            ['6000', 'sechstausend'],
+            ['7000', 'siebentausend'],
+            ['8000', 'achttausend'],
+            ['9000', 'neuntausend'],
+            ['10000', 'zehntausend'],
+            ['100000', 'einhunderttausend'],
             ['1001', 'eintausendeins'],
-            ['1999', 'eintausendneunhundertneunundneunzig'],
+            ['1002', 'eintausendzwei'],
+            ['1010', 'eintausendzehn'],
+            ['1011', 'eintausendelf'],
+            ['1016', 'eintausendsechzehn'],
             ['1100', 'eintausendeinhundert'],
+            ['1101', 'eintausendeinhunderteins'],
+            ['1110', 'eintausendeinhundertzehn'],
+            ['1111', 'eintausendeinhundertelf'],
+            ['1999', 'eintausendneunhundertneunundneunzig'],
             ['1016', 'eintausendsechzehn'],
             ['4392', 'viertausenddreihundertzweiundneunzig'],
             ['1584', 'eintausendfünfhundertvierundachtzig'],
@@ -257,23 +334,15 @@ class GermanTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['1000000', 'eine Million'],
+            ['2000000', 'zwei Millionen'],
             ['1000000000', 'eine Milliarde'],
+            ['3000000000', 'drei Milliarden'],
             ['1000000000000', 'eine Billion'],
-            ['4000000000000000005002388', 'vier Quadrillionen fünf Millionen zweitausenddreihundertachtundachtzig'],
-            ['1' . str_repeat('0', 6000), 'eine Millinillion'],
-            ['6' . str_repeat('0', 1800), 'sechs Trezentillionen'],
-            ['1' . str_repeat('0', 59994), 'eine Nonillinovenonagintanongentillion'],
-            ['1' . str_repeat('0', 6000000), 'eine Millinillinillion'],
-            ['1' . str_repeat('0', 462), 'eine Septenseptuagintillion'],
-            ['1' . str_repeat('0', 138), 'eine Tresvigintillion'],
-            ['1' . str_repeat('0', 516), 'eine Sexoktogintillion'],
-            ['1' . str_repeat('0', 612), 'eine Duozentillion'],
-            ['1' . str_repeat('0', 654), 'eine Novenzentillion'],
-            ['1' . str_repeat('0', 4854), 'eine Novemoktingentillion'],
-            ['1' . str_repeat('0', 828), 'eine Oktotrigintazentillion'],
-            ['1' . str_repeat('0', 2418), 'eine Tresquadringentillion'],
-            ['1' . str_repeat('0', 4836), 'eine Sexoktingentillion'],
-            ['899' . str_repeat('0', 498), 'achthundertneunundneunzig Treoktogintillionen'],
+            ['4000000000000', 'vier Billionen'],
+            ['1000000000000000', 'eine Billiarde'],
+            ['5000000000000000', 'fünf Billiarden'],
+            ['1000000000000000000', 'eine Trillion'],
+            ['6000000000000000000', 'sechs Trillionen'],
         ];
     }
 
@@ -284,6 +353,7 @@ class GermanTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['0,50', 'null Komma fünf'],
+            ['-0,50', 'minus null Komma fünf'],
             ['-101,88', 'minus einhunderteins Komma acht acht'],
             ['39279,43000', 'neununddreißigtausendzweihundertneunundsiebzig Komma vier drei']
         ];
@@ -295,12 +365,30 @@ class GermanTest extends \PHPUnit_Framework_TestCase
     public function largeNumberProvider()
     {
         return [
-            [6000, 'Millinillion'],
-            [600, 'Zentillion'],
             [6, 'Million'],
             [9, 'Milliarde'],
+            [12, 'Billion'],
             [15, 'Billiarde'],
+            [18, 'Trillion'],
+            [21, 'Trilliarde'],
+            [24, 'Quadrillion'],
+            [27, 'Quadrilliarde'],
+            [138, 'Tresvigintillion'],
+            [462, 'Septenseptuagintillion'],
+            [498, 'Treoktogintillion'],
+            [516, 'Sexoktogintillion'],
+            [600, 'Zentillion'],
+            [612, 'Duozentillion'],
+            [654, 'Novenzentillion'],
+            [828, 'Oktotrigintazentillion'],
             [900, 'Quinquagintazentillion'],
+            [1800, 'Trezentillion'],
+            [2418, 'Tresquadringentillion'],
+            [4836, 'Sexoktingentillion'],
+            [4854, 'Novemoktingentillion'],
+            [6000, 'Millinillion'],
+            [59994, 'Nonillinovenonagintanongentillion'],
+            [6000000, 'Millinillinillion'],
         ];
     }
 }
