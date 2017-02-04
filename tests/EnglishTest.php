@@ -6,6 +6,7 @@ namespace NumberToWords\Tests;
 
 use NumberToWords\NumberToWords;
 use NumberToWords\Locale\English;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class GermanTest
@@ -13,7 +14,7 @@ use NumberToWords\Locale\English;
  * @author Patrick Schur <patrick_schur@outlook.de>
  * @package NumberToWords\Tests
  */
-class EnglishTest extends \PHPUnit_Framework_TestCase
+class EnglishTest extends TestCase
 {
     public function testIsNull()
     {
